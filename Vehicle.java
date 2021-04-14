@@ -31,7 +31,7 @@ public class Vehicle
         setModel(Model);
         setYear(Year);
         /**
-         * return the stockCode as a string
+         *@ return the stockCode as a string
          */
     } 
 
@@ -40,28 +40,28 @@ public class Vehicle
     }
 
     /**
-     * return make as a string
+     * @return make as a string
      */
     public String getMake(){
         return make;
     }
 
     /**
-     * return model as a string
+     * @return model as a string
      */
     public String getModel(){
         return model;
     }
 
     /**
-     * return year as an int 
+     * @return year as an int 
      */
     public int getYear(){
         return year;
     }
 
     /**
-     * return dealer as a double
+     * @return dealer as a double
      */
 
     public double getDealerCost(){
@@ -69,14 +69,14 @@ public class Vehicle
     }
 
     /**
-     * return sellingPrice as a double
+     *@ return sellingPrice as a double
      */
     public double getSellingPrice(){
         return sellingPrice;
     }
 
     /**
-     * return profitMargin as a double 
+     * @return profitMargin as a double 
      */
     public double getProfitMargin(){
         return profitMargin;
@@ -92,7 +92,7 @@ public class Vehicle
 
         {stockCode=StockCode;}
         else
-        {stockCode=stockCode;
+        {
 
             System.out.println("StockCode is not valid");
         }}
@@ -106,7 +106,7 @@ public class Vehicle
         if(Make!=null && !Make.trim().isEmpty())
             make=Make;
         else 
-        {make=make;
+        {
             System.out.println("enter valid make");}
     }
 
@@ -118,7 +118,7 @@ public class Vehicle
         if (Model!=null && !Model.trim().isEmpty())
             model=Model;
         else
-        {model=model;
+        {
             System.out.println("enter the valid model");}
     }
 
@@ -130,7 +130,7 @@ public class Vehicle
         if(Year>1970 && Year<2019)
         { year=Year;}
         else
-        {year=year;
+        {
             System.out.println("the year is not valid");}
     }
 
@@ -146,11 +146,11 @@ public class Vehicle
     /**
      * @param DealerCost used to set sellingPrice field
      */
-    public void checkStandardSellingPrice(double SellingPrice, double DealerCost)
+    public void checkStandardSellingPrice(double sellingPrice)
     {
-        if (SellingPrice>=DealerCost*1.25)
+        if (sellingPrice>=dealerCost*1.25)
         {
-            {sellingPrice=SellingPrice;}
+            {this.sellingPrice=sellingPrice;}
         }
         else {
 
@@ -160,11 +160,11 @@ public class Vehicle
     /**
      * @param SellingPrice used to set sellingPrice field
      */
-    public void setSellingPrice(double SellingPrice)
+    public void setSellingPrice(double sellingPrice)
     {
-        if(SellingPrice>0)
+        if(sellingPrice>0)
 
-            sellingPrice=SellingPrice;
+            this.sellingPrice=sellingPrice;
 
     }
 
@@ -184,9 +184,9 @@ public class Vehicle
      */
 
     public double getcalculateProfit()
-    
+
     {
-      
+
         return sellingPrice-dealerCost;
 
     }
@@ -195,10 +195,10 @@ public class Vehicle
      * method that print the details of Jalopies Are Us Vehicle
      */
     public void PrintDetails(){
-        System.out.println("Jalopies Are Us Vehicle Summary:");
+        System.out.println("Vhicle Description: Jalopies Are Us Vehicle Summary:  ");
         System.out.println("Vehicles: "+year+" "+make+" "+model);
         System.out.println("StockCode: "+stockCode);
-     
+
         System.out.print("Dealercost: $");
         System.out.printf("%.2f",dealerCost);
         System.out.println();
@@ -206,11 +206,13 @@ public class Vehicle
         System.out.printf("%.2f",sellingPrice);
         System.out.println();
         System.out.print("ProfitMargin: ");
-         System.out.printf("%.2f",profitMargin);
-         System.out.print("%");
-         System.out.println();
+        System.out.printf("%.2f",profitMargin);
+        System.out.print("%");
+        System.out.println();
         System.out.print("Dollar profit: $");
-        System.out.printf("%.2f",sellingPrice-dealerCost);
+        System.out.printf("%.2f",getcalculateProfit());
+        System.out.println();
     }
 
 }
+
